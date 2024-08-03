@@ -1,10 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "bootstrap/js/dist/dropdown";
 import "./Sidebar.css";
 
 const Sidebar = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    // Clear user session data if needed (e.g., remove tokens)
+    // localStorage.removeItem('userToken');
+    // Redirect to the register page
+    navigate('/auth/register');
+  };
+
   return (
     <div className="container-fluid">
       <div className="row">
@@ -71,9 +80,9 @@ const Sidebar = () => {
               <Link className="dropdown-item" to="/profile">
                 Profile
               </Link>
-              <Link className="dropdown-item" to="/logout">
+              <button className="dropdown-item" onClick={handleLogout}>
                 Logout
-              </Link>
+              </button>
             </div>
           </div>
         </div>
