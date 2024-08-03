@@ -14,28 +14,37 @@ const Register = () => {
   };
 
   return (
-    <div className="signup-container">
-      <div className="signup-header">
-        <img src="/ERPT logo.png" alt="ERPT Unisan Logo" className="logo" />
-      </div>
-      <h2>Verify your Email / Mobile no.</h2>
-      <form className="signup-form" onSubmit={handleSendOTP}>
-        <div className="input-container">
-          <h6>Email / Phone No.:</h6>
-          <input 
-            type="email" 
-            placeholder="Email / Phone No." 
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required 
-          />
+    <>
+      <nav className="navbar">
+        <img src="/ERPT logo.png" alt="ERPT Unisan Logo" className="navbar-logo" />
+        <button className="contact-button" onClick={() => navigate('/contact')}>
+          <img src="/contact-icon.png" alt="Contact Icon" className="contact-icon" />
+          Contact
+        </button>
+      </nav>
+      <div className="signup-container">
+        <div className="signup-header">
+          <img src="/ERPT logo.png" alt="ERPT Unisan Logo" className="logo" />
         </div>
-        <button type="submit">Send OTP</button>
-      </form>
-      <p>
-        Already have an account? <a href="/auth/login">Sign in</a>
-      </p>
-    </div>
+        <h2>Verify your Email / Mobile no.</h2>
+        <form className="signup-form" onSubmit={handleSendOTP}>
+          <div className="input-container">
+            <h6>Email / Phone No.:</h6>
+            <input 
+              type="email" 
+              placeholder="Email / Phone No." 
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required 
+            />
+          </div>
+          <button type="submit">Send OTP</button>
+        </form>
+        <p>
+          Already have an account? <a href="/auth/login">Sign in</a>
+        </p>
+      </div>
+    </>
   );
 };
 

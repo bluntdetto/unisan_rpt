@@ -1,5 +1,3 @@
-/* Register.css */
-
 .signup-container {
     display: flex;
     flex-direction: column;
@@ -8,8 +6,51 @@
     height: 100vh;
     font-size: 13px;
     background: #fff; /* or the appropriate background */
+    padding-top: 70px; /* Adjust this based on the navbar height */
   }
-
+  
+  .navbar {
+    width: 100%;
+    position: fixed; /* Fix the navbar to the top of the screen */
+    top: 0; /* Align it to the very top */
+    left: 0; /* Align it to the very left */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Ensure the navbar is above other content */
+    height: 60px; /* Set a fixed height for the navbar */
+  }
+  
+  .navbar-logo {
+    height: 50px; /* Adjust as needed */
+    margin-left: 10px;
+  }
+  
+  .contact-button {
+    display: flex;
+    align-items: center; /* Center content vertically */
+    padding: 10px 20px;
+    background-color: #fefefe;
+    color: #333;
+    border-radius: 5px;
+    border: 1px solid #333;
+    cursor: pointer;
+    font-size: 12px;
+    margin-right: 10px;
+  }
+  
+  .contact-button:hover {
+    background-color: #ededed;
+  }
+  
+  .contact-icon {
+    height: 16px; /* Adjust size as needed */
+    margin-right: 8px; /* Space between icon and text */
+  }
+  
   .signup-header {
     display: flex;
     flex-direction: column;
@@ -62,6 +103,7 @@
     cursor: pointer;
     font-size: 12px;
     margin-top: 10px;
+    margin-bottom: 10px;
   }
   
   .signup-form button:hover {
@@ -69,12 +111,12 @@
   }
   
   .signup-form p {
-    margin-top: 10px;
+    margin-top: 30px; /* Increased margin to add more space */
     color: #555;
   }
   
   .signup-form p a {
-    color: #4c51bf;
+    color: #4c51bf; /* Change this color as needed */
     text-decoration: none;
   }
   
