@@ -10,11 +10,11 @@ import Account from "./pages/Account";
 function App() {
   return (
     <BrowserRouter>
-      <Sidebar />
+      
       <Routes>
         <Route path="/auth/login" element={<Login />} />
 
-        <Route path="/" element={<Overview />} />
+        <Route path="/overview" element={<Overview />} />
         <Route path="/payments" element={<Payments />} />
         <Route path="/account" element={<Account />} />
       </Routes>
