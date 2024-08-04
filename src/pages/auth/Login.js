@@ -13,18 +13,12 @@ function Login() {
     console.log('Login attempt', { emailOrPhone, password });
 
     // Redirect to another page after successful login
-    navigate('/dashboard');
+    navigate('/');
   };
 
   return (
     <>
-      <nav className="navbar">
-        <img src="/ERPT logo 1.png" alt="ERPT Unisan Logo" className="navbar-logo" />
-        <button className="contact-button" onClick={() => navigate('/contact')}>
-          <img src="/contact-icon.png" alt="Contact Icon" className="contact-icon" />
-          Contact
-        </button>
-      </nav>
+    
       <div className="login-container">
         <div className="login-logo">
           <img src="/ERPT logo.png" alt="Logo" />

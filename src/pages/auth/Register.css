@@ -5,7 +5,7 @@
     justify-content: center;
     height: 100vh;
     font-size: 13px;
-    background: #fff; /* or the appropriate background */
+    background: #f5f5f5; /* or the appropriate background */
     padding-top: 70px; /* Adjust this based on the navbar height */
   }
   

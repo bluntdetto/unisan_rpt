@@ -11,11 +11,11 @@ const Sidebar = () => {
     // Clear user session data if needed (e.g., remove tokens)
     // localStorage.removeItem('userToken');
     // Redirect to the register page
-    navigate('/auth/register');
+    navigate("/auth/register");
   };
 
   return (
-    <div className="bg-light col-auto col-md-2 min-vh-100 d-flex flex-column justify-content-between p-2">
+    <div className=" col-auto col-md-2 min-vh-100 d-flex flex-column justify-content-between p-2">
       <div>
         <Link
           className="text-decoration-none text-dark d-flex align-items-center ms-3 mt-2"
@@ -29,14 +29,12 @@ const Sidebar = () => {
         <ul className="nav nav-pills flex-column mt-3">
           <li className="nav-item my-1">
             <Link
-              to="/overview"
+              to="/"
               className="nav-link text-dark fs-5 d-flex align-items-center"
               aria-current="page"
             >
               <i className="bi bi-columns-gap custom-icon "></i>
-              <span className="ms-3 d-none d-sm-inline fs-6 ">
-                Overview
-              </span>
+              <span className="ms-3 d-none d-sm-inline fs-6 ">Overview</span>
             </Link>
           </li>
           <li className="nav-item my-1">
