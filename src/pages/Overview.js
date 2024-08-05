@@ -1,13 +1,11 @@
 import React from "react";
 import "./Overview.css";
-import Sidebar from "../components/Sidebar";
 
 const Overview = () => {
   return (
-    <div className="d-flex">
-      <Sidebar />
-      <div className="flex-grow-1 container-fluid px-4">
-        <div className="row mt-4 ">
+    <div>
+      <div className="container-fluid px-4 mr-0 ">
+        <div className="row pt-3">
           <div className="col-12">
             <div className="row m-0">
               <div className="col-md-12 pb-2">
@@ -16,58 +14,81 @@ const Overview = () => {
                 </h4>
               </div>
             </div>
-            <div className="row">
+            <div className="row pb-2">
               <div className="col-md-6">
                 <div className="card mb-3">
-                  <div className="card-body">
-                    <h5 className="card-title">Tax Due</h5>
-                    <p className="card-text">
-                      <strong>Current Payment Plan:</strong> Quarterly
+                  <div className="card-body p-4">
+                    <h5 className="card-title">
+                      <strong>Tax Due</strong>
+                    </h5>
+                    <p className="sub-info">
+                      Your current installment plan and tax due information are
+                      shown here
                     </p>
-                    <p className="card-text">
-                      <strong>Last Payment:</strong> 1st Quarter - Sept 30, 2023
-                      - ₱1175.12
+                    <p className="card-text title mb-0 ">
+                      Current Payment Plan
                     </p>
-                    <p className="card-text">
-                      <strong>Next Payment:</strong> 2nd Quarter - April 1, to
-                      June 30, 2024 - ₱1175.12
+                    <p className="info">Quarterly</p>
+                    <p className="card-text title mb-0">Last Payment</p>
+                    <p className="card-text info">
+                      1st Quarter - Sept 30, 2023 - ₱1175.12
                     </p>
-                    <div className="d-flex justify-content-between">
-                      <button className="btn btn-outline-secondary">
+
+                    <p className="card-text title mb-0">Next Payment</p>
+                    <p className="card-text info">
+                      2nd Quarter - April 1, to June 30, 2024 - ₱1175.12
+                    </p>
+                    <p></p>
+                    <div className="d-flex pt-3">
+                      <button className="btn btn-outline-secondary btn-sm mr-3">
                         Change Plan
                       </button>
-                      <button className="btn btn-primary">Pay Tax Due</button>
+                      <button className="btn btn-primary btn-sm">
+                        Pay Tax Due
+                      </button>
                     </div>
                   </div>
                 </div>
               </div>
               <div className="col-md-6">
-                <div className="card mb-3">
-                  <div className="card-body">
-                    <h5 className="card-title">Property Information</h5>
-                    <p className="card-text">
-                      <strong>Name of Declared Owner:</strong> Yolanda C. Valler
+                <div className="card">
+                  <div className="card-body p-4">
+                    <h5 className="card-title">
+                      <strong>Property Information</strong>
+                    </h5>
+                    <p className="sub-info">
+                      The next payment will be made with the selected property
+                      below
                     </p>
-                    <p className="card-text">
-                      <strong>Name of Barangay:</strong> F. De Jesus
+                    <p className="card-text title mb-0">
+                      Name of Declared Owner
                     </p>
-                    <p className="card-text">
-                      <strong>Tax Declaration Number:</strong> 40-0004-00800
+                    <p className="card-text info">Yolanda C. Valler</p>
+                    <p className="card-text title mb-0">Name of Barangay</p>
+                    <p className="card-text info">F. De Jesus</p>
+
+                    <p className="card-text title mb-0">
+                      Tax Declaration Number
                     </p>
-                    <button className="btn btn-outline-secondary">
-                      Select Property
-                    </button>
+                    <p className="card-text info">40-0004-00800</p>
+                    <div className="d-flex pt-3">
+                      <button className="btn btn-outline-secondary btn-sm ">
+                        Select Property
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
             <div className="row">
               <div className="col-12">
-                <div className="card mb-3">
-                  <div className="card-body">
-                    <h5 className="card-title">Payment History and Tax Bill</h5>
+                <div className="card">
+                  <div className="card-body p-4">
+                    <h5 className="card-title pb-3">
+                      <strong>Payment History and Tax Bill</strong>
+                    </h5>
                     <div className="table-responsive">
-                      <table className="table table-striped">
+                      <table className="table">
                         <thead>
                           <tr>
                             <th>Payment ID</th>

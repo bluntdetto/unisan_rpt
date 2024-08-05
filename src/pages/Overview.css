@@ -1,8 +1,43 @@
 .container-fluid {
   height: 100%;
   padding: 0;
+  background-color: #e8ecf0;
 }
 
 .card {
   margin-bottom: 1rem;
+}
+
+.sub-info{
+  font-size: small;
+  color: #626a79;
+}
+
+.info{
+  font-size:medium;
+  font-weight: 600;
+}
+
+.title{
+  font-size: small;
+   color: #626a79;
+}
+
+.btn-primary {
+  background-color: #635EF6 !important;
+  border-color: #635EF6 !important;
+}
+
+.btn-primary:hover {
+  background-color: #5348E2 !important; 
+  border-color: #5348E2 !important;
+}
+
+table{
+  font-size: small;
+}
+
+
+.card {
+  border: none !important;
 }
