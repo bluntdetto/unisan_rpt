@@ -1,0 +1,86 @@
+.container-fluid {
+  height: 100%;
+  padding: 0;
+  background-color: #e8ecf0;
+}
+
+.card {
+  margin-bottom: 1rem;
+}
+
+.sub-info {
+  font-size: small;
+  color: #626a79;
+}
+
+.info {
+  font-size: medium;
+  font-weight: 600;
+}
+
+.title {
+  font-size: small;
+  color: #626a79;
+}
+
+.btn-primary {
+  background-color: #635ef6 !important;
+  border-color: #635ef6 !important;
+}
+
+.btn-primary:hover {
+  background-color: #5348e2 !important;
+  border-color: #5348e2 !important;
+}
+
+table {
+  font-size: small;
+}
+
+.card {
+  border: none !important;
+}
+
+
+
+.badge-success {
+  background-color: #28a745 !important;
+}
+
+.badge-warning {
+  background-color: #ffc107 !important;
+}
+
+.badge-danger {
+  background-color: #dc3545 !important;
+}
+
+.btn-outline-primary {
+  color: #635ef6 !important;
+  border-color: #635ef6 !important;
+}
+
+.btn-outline-primary:hover {
+  background-color: #635ef6 !important;
+  color: #fff !important;
+}
+
+.btn-outline-secondary {
+  color: #6c757d !important;
+  border-color: #6c757d !important;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #6c757d !important;
+  color: #fff !important;
+}
+
+.btn-outline-secondary.active {
+  background-color: #635ef6 !important;
+  border-color: #635ef6 !important;
+  color: #fff !important;
+}
+
+.btn-group .btn:last-child {
+  margin-right: 0;
+}
