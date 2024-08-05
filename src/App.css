@@ -5,7 +5,6 @@ html * {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif !important;
 }
 
-
 span {
   font-weight: 600;
 }
@@ -14,7 +13,21 @@ span {
   background-color: #e8ecf0;
 }
 
+body {
+  background-color: #e8ecf0 !important;
+}
+
 .custom-icon {
   display: inline-block;
   transform: scale(1.1); /* Optional: Scale to enhance thickness */
+}
+
+.table th,
+.table td {
+  vertical-align: middle !important;
+  padding: 0.7rem !important;
+}
+
+.table-responsive {
+  overflow-x: auto !important;
 }

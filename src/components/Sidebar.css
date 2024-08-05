@@ -2,7 +2,12 @@
   background-color: #e8ecf0;
 }
 
+.bg{
+  background-color: white;
+}
+
+
 .sidebar-logo {
-  height: 30px; /* Adjust height as needed */
-  width: auto;  /* Maintain aspect ratio */
+  height: 40px; /* Adjust as needed */
+  
 }

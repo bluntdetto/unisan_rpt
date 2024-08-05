@@ -29,7 +29,7 @@ function Login() {
             <label>Email/Phone no.:</label>
             <input
               type="text"
-              placeholder="Email / Phone No."
+              
               value={emailOrPhone}
               onChange={(e) => setEmailOrPhone(e.target.value)}
               required
@@ -39,7 +39,7 @@ function Login() {
             <label>Password:</label>
             <input
               type="password"
-              placeholder="Password"
+             
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required

@@ -1,10 +1,94 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Overview.css";
+import { Badge } from "react-bootstrap";
 
 const Overview = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const rowsPerPage = 6;
+
+  // Sample data for the table
+  const paymentHistory = [
+    {
+      id: "#PY231234563",
+      date: "7 Mar 2024",
+      amount: "₱1175.12",
+      plan: "Quarterly (1)",
+      status: "Pending",
+    },
+    {
+      id: "#PY231234564",
+      date: "23 Dec 2023",
+      amount: "₱1175.12",
+      plan: "Quarterly (4)",
+      status: "Unpaid",
+    },
+    {
+      id: "#PY231234565",
+      date: "30 Sept 2023",
+      amount: "₱1175.12",
+      plan: "Quarterly (3)",
+      status: "Paid",
+    },
+    {
+      id: "#PY231234566",
+      date: "7 Mar 2023",
+      amount: "₱1175.12",
+      plan: "Quarterly (2)",
+      status: "Paid",
+    },
+    {
+      id: "#PY231234568",
+      date: "10 Feb 2023",
+      amount: "₱1175.12",
+      plan: "Quarterly (1)",
+      status: "Paid",
+    },
+    {
+      id: "#PY231234567",
+      date: "13 Jan 2022",
+      amount: "₱4700.52",
+      plan: "Annually (F)",
+      status: "Paid",
+    },
+    {
+      id: "#PY231234567",
+      date: "13 Jan 2022",
+      amount: "₱4700.52",
+      plan: "Annually (F)",
+      status: "Paid",
+    },
+    // Add more rows if needed
+  ];
+
+   const renderStatusBadge = (status) => {
+     switch (status) {
+       case "Paid":
+         return <Badge bg="success">Paid</Badge>;
+       case "Pending":
+         return <Badge bg="warning">Pending</Badge>;
+       case "Unpaid":
+         return <Badge bg="danger">Unpaid</Badge>;
+       default:
+         return <Badge bg="secondary">Unknown</Badge>;
+     }
+   };
+
+  // Calculate the indices of the first and last rows for the current page
+  const indexOfLastRow = currentPage * rowsPerPage;
+  const indexOfFirstRow = indexOfLastRow - rowsPerPage;
+  const currentRows = paymentHistory.slice(indexOfFirstRow, indexOfLastRow);
+
+  // Change page
+  const handlePageChange = (newPage) => {
+    setCurrentPage(newPage);
+  };
+
+  // Pagination logic
+  const totalPages = Math.ceil(paymentHistory.length / rowsPerPage);
+
   return (
     <div>
-      <div className="container-fluid px-4 mr-0 ">
+      <div className="container-fluid px-4 mr-0">
         <div className="row pt-3">
           <div className="col-12">
             <div className="row m-0">
@@ -25,9 +109,7 @@ const Overview = () => {
                       Your current installment plan and tax due information are
                       shown here
                     </p>
-                    <p className="card-text title mb-0 ">
-                      Current Payment Plan
-                    </p>
+                    <p className="card-text title mb-0">Current Payment Plan</p>
                     <p className="info">Quarterly</p>
                     <p className="card-text title mb-0">Last Payment</p>
                     <p className="card-text info">
@@ -38,7 +120,6 @@ const Overview = () => {
                     <p className="card-text info">
                       2nd Quarter - April 1, to June 30, 2024 - ₱1175.12
                     </p>
-                    <p></p>
                     <div className="d-flex pt-3">
                       <button className="btn btn-outline-secondary btn-sm mr-3">
                         Change Plan
@@ -72,7 +153,7 @@ const Overview = () => {
                     </p>
                     <p className="card-text info">40-0004-00800</p>
                     <div className="d-flex pt-3">
-                      <button className="btn btn-outline-secondary btn-sm ">
+                      <button className="btn btn-outline-secondary btn-sm">
                         Select Property
                       </button>
                     </div>
@@ -100,86 +181,42 @@ const Overview = () => {
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td>#PY231234563</td>
-                            <td>7 Mar 2024</td>
-                            <td>₱1175.12</td>
-                            <td>Quarterly (1)</td>
-                            <td>Pending</td>
-                            <td>
-                              <button className="btn btn-primary btn-sm">
-                                Pay Tax Due
-                              </button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>#PY231234564</td>
-                            <td>23 Dec 2023</td>
-                            <td>₱1175.12</td>
-                            <td>Quarterly (4)</td>
-                            <td>Unpaid</td>
-                            <td>
-                              <button className="btn btn-primary btn-sm">
-                                Pay Tax Due
-                              </button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>#PY231234565</td>
-                            <td>30 Sept 2023</td>
-                            <td>₱1175.12</td>
-                            <td>Quarterly (3)</td>
-                            <td>Paid</td>
-                            <td>
-                              <button className="btn btn-outline-secondary btn-sm">
-                                Download Receipt
-                              </button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>#PY231234566</td>
-                            <td>7 Mar 2023</td>
-                            <td>₱1175.12</td>
-                            <td>Quarterly (2)</td>
-                            <td>Paid</td>
-                            <td>
-                              <button className="btn btn-outline-secondary btn-sm">
-                                Download Receipt
-                              </button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>#PY231234568</td>
-                            <td>10 Feb 2023</td>
-                            <td>₱1175.12</td>
-                            <td>Quarterly (1)</td>
-                            <td>Paid</td>
-                            <td>
-                              <button className="btn btn-outline-secondary btn-sm">
-                                Download Receipt
-                              </button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>#PY231234567</td>
-                            <td>13 Jan 2022</td>
-                            <td>₱4700.52</td>
-                            <td>Annually (F)</td>
-                            <td>Paid</td>
-                            <td>
-                              <button className="btn btn-outline-secondary btn-sm">
-                                Download Receipt
-                              </button>
-                            </td>
-                          </tr>
+                          {currentRows.map((row, index) => (
+                            <tr key={index}>
+                              <td>{row.id}</td>
+                              <td>{row.date}</td>
+                              <td>{row.amount}</td>
+                              <td>{row.plan}</td>
+                              <td>{renderStatusBadge(row.status)}</td>
+                              <td>
+                                {row.status === "Paid" ? (
+                                  <button className="btn btn-outline-secondary btn-sm">
+                                    Download Receipt
+                                  </button>
+                                ) : (
+                                  <button className="btn btn-primary btn-sm">
+                                    Pay Tax Due
+                                  </button>
+                                )}
+                              </td>
+                            </tr>
+                          ))}
                         </tbody>
                       </table>
                     </div>
-                    <div className="d-flex justify-content-between">
-                      <button className="btn btn-outline-secondary btn-sm">
+                    <div className="d-flex">
+                      <button
+                        className="btn btn-outline-secondary btn-sm mx-2"
+                        disabled={currentPage === 1}
+                        onClick={() => handlePageChange(currentPage - 1)}
+                      >
                         Previous
                       </button>
-                      <button className="btn btn-outline-secondary btn-sm">
+                      <button
+                        className="btn btn-outline-secondary btn-sm"
+                        disabled={currentPage === totalPages}
+                        onClick={() => handlePageChange(currentPage + 1)}
+                      >
                         Next
                       </button>
                     </div>
