@@ -21,9 +21,7 @@ const Sidebar = () => {
           className="text-decoration-none text-dark d-flex align-items-center ms-3 mt-2"
           to="/"
         >
-          <span className="ms-1 fs-4 d-none d-sm-inline text-center">
-            ERPT - UNISAN
-          </span>
+          <img src="/ERPT logo 1.png" alt="ERPT Unisan Logo" className="sidebar-logo" />
         </Link>
         <hr className="text-secondary d-none d-sm-block" />
         <ul className="nav nav-pills flex-column mt-3">

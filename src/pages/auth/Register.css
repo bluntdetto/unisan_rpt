@@ -6,7 +6,6 @@
     height: 100vh;
     font-size: 13px;
     background: #fff; /* or the appropriate background */
-    padding-top: 70px; /* Adjust this based on the navbar height */
   }
   
   .navbar {
@@ -59,7 +58,7 @@
   }
   
   .logo {
-    height: 100px; /* Adjust as needed */
+    height: 90px; /* Adjust as needed */
   }
   
   .signup-container h2 {
