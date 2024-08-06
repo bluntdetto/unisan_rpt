@@ -46,7 +46,7 @@ function Login() {
             />
           </div>
           <div className="forgot-password">
-            <a href="/forgot-password">Forgot Password?</a>
+            <a href="/auth/forgot-password">Forgot Password?</a>
           </div>
           <div className="login-button-container">
             <button type="submit" className="login-button">Login</button>
