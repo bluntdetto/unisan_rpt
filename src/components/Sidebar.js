@@ -15,13 +15,17 @@ const Sidebar = () => {
   };
 
   return (
-    <div className=" col-auto col-md-2 min-vh-100 d-flex flex-column justify-content-between p-2">
+    <div className="bg col-auto col-md-2 min-vh-100 d-flex flex-column justify-content-between p-2">
       <div>
         <Link
           className="text-decoration-none text-dark d-flex align-items-center ms-3 mt-2"
           to="/"
         >
-          <img src="/ERPT logo 1.png" alt="ERPT Unisan Logo" className="sidebar-logo" />
+          <img
+            src="/ERPT logo 1.png"
+            alt="ERPT Unisan Logo"
+            className="sidebar-logo d-none d-sm-block"
+          />
         </Link>
         <hr className="text-secondary d-none d-sm-block" />
         <ul className="nav nav-pills flex-column mt-3">
