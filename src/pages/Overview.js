@@ -92,10 +92,13 @@ const Overview = () => {
         <div className="row pt-3">
           <div className="col-12">
             <div className="row m-0">
-              <div className="col-md-12 pb-2">
+              <div className="col-md-12 pb-2 d-flex justify-content-between">
                 <h4>
                   <strong>Overview</strong>
                 </h4>
+                <h5 className="circle-background d-inline-flex align-items-center justify-content-center float-sm-right">
+                  <i className="bi bi-bell "></i>
+                </h5>
               </div>
             </div>
             <div className="row pb-2">

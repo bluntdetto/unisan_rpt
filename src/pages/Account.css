@@ -1,0 +1,25 @@
+.container {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.profile-picture img {
+  width: 150px;
+  height: 150px;
+}
+
+.card {
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+  background-color: #635ef6 !important;
+  border-color: #635ef6 !important;
+}
+
+.btn-primary:hover {
+  background-color: #5348e2 !important;
+  border-color: #5348e2 !important;
+}

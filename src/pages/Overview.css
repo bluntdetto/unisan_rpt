@@ -41,3 +41,16 @@ table{
 .card {
   border: none !important;
 }
+
+.circle-background {
+    width: 40px; /* Adjust the width as needed */
+    height: 40px; /* Adjust the height as needed */
+    border-radius: 50%;
+    background-color: white /* Adjust the background color as needed */
+  }
+
+.circle-background i {
+    font-size: 24px; /* Adjust the icon size as needed */
+    color: #635EF6;
+  }
+  
