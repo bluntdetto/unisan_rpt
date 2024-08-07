@@ -92,6 +92,8 @@ const Overview = () => {
                         <p className="card-text title mb-0">Phone</p>
                         <p className="card-text info">09123456789</p>
                       </div>
+                      <div className ="col">
+                      </div>
                     </div>
 
                     <div className="d-flex pt-3">
