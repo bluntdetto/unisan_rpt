@@ -9,13 +9,12 @@ import ForgotPassword from "./pages/auth/ForgotPassword";
 import Overview from "./pages/Overview";
 import Payments from "./pages/Payments";
 import Account from "./pages/Account";
-import Contact from "./pages/Contact";
 
 const App = () => {
   const location = useLocation();
 
   // Define paths where the Sidebar should not be displayed
-  const noSidebarPaths = ["/auth/login", "/auth/register", "/auth/forgot-password", "/contact"];
+  const noSidebarPaths = ["/auth/login", "/auth/register", "/auth/forgot-password"];
   // Define paths where the Navbar should not be displayed
   const noNavbarPaths = ["/", "/payments", "/account"];
 
@@ -27,7 +26,6 @@ const App = () => {
           <Route path="/auth/login" element={<Login />} />
           <Route path="/auth/register" element={<Register />} />
           <Route path="/auth/forgot-password" element={<ForgotPassword />} />
-          <Route path="/contact" element={<Contact />} />
         </Routes>
       ) : (
         <div className="d-flex">
