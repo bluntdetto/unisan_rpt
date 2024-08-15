@@ -2,12 +2,17 @@
   background-color: #e8ecf0;
 }
 
-.bg{
+
+
+.bg {
   background-color: white;
 }
 
-
 .sidebar-logo {
-  height: 40px; /* Adjust as needed */
-  
+  height: 40px;
+}
+
+.nav-link.active {
+
+  background-color: #e8ecf0 !important; 
 }

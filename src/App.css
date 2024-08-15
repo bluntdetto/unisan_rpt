@@ -31,3 +31,12 @@ body {
 .table-responsive {
   overflow-x: auto !important;
 }
+
+@media (max-width: 768px) { /* Adjust the max-width as needed */
+  .table-container {
+    max-width: 325px;
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: fit-content; /* Adjust as needed */
+  }
+}

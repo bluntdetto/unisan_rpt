@@ -4,7 +4,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import "bootstrap/js/dist/dropdown";
 import "./Sidebar.css";
 
-const Sidebar = () => {
+const EmployeeSidebar = () => {
   const navigate = useNavigate();
   const location = useLocation(); // Use this hook to get the current location
 
@@ -32,26 +32,40 @@ const Sidebar = () => {
         <ul className="nav nav-pills flex-column mt-3">
           <li className="nav-item my-1">
             <Link
-              to="/"
+              to="/arptc"
               className={`nav-link text-dark fs-5 d-flex align-items-center ${
-                location.pathname === "/" ? "active" : ""
+                location.pathname === "/arptc" ? "active" : ""
               }`}
               aria-current="page"
             >
-              <i className="bi bi-columns-gap custom-icon"></i>
-              <span className="ms-3 d-none d-sm-inline fs-6">Overview</span>
+              <i className="bi bi-receipt custom-icon"></i>
+              <span className="ms-3 d-none d-sm-inline fs-6">ARPTC</span>
             </Link>
           </li>
           <li className="nav-item my-1">
             <Link
-              to="/payments"
+              to="/users"
               className={`nav-link text-dark fs-5 d-flex align-items-center ${
-                location.pathname === "/payments" ? "active" : ""
+                location.pathname === "/users" ? "active" : ""
               }`}
               aria-current="page"
             >
-              <i className="bi bi-credit-card custom-icon"></i>
-              <span className="ms-3 d-none d-sm-inline fs-6">Payments</span>
+              <i className="bi bi-person-gear custom-icon"></i>
+              <span className="ms-3 d-none d-sm-inline fs-6">
+                User Management
+              </span>
+            </Link>
+          </li>
+          <li className="nav-item my-1">
+            <Link
+              to="/employees"
+              className={`nav-link text-dark fs-5 d-flex align-items-center ${
+                location.pathname === "/employees" ? "active" : ""
+              }`}
+              aria-current="page"
+            >
+              <i className="bi bi-briefcase custom-icon"></i>
+              <span className="ms-3 d-none d-sm-inline fs-6">Employees</span>
             </Link>
           </li>
           <li className="nav-item my-1">
@@ -94,4 +108,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default EmployeeSidebar;

@@ -4,7 +4,7 @@ import { Badge } from "react-bootstrap";
 
 const Overview = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const rowsPerPage = 6;
+  const rowsPerPage = 4;
 
   // Sample data for the table
   const listOfProperties = [
@@ -29,7 +29,13 @@ const Overview = () => {
       loc: "F. De Jesus",
       assessedValue: "22,480.00",
     },
-    
+    {
+      no: "3",
+      kind: "Agricultural",
+      TDno: "40-004-00800",
+      loc: "F. De Jesus",
+      assessedValue: "22,480.00",
+    },
 
     // Add more rows if needed
   ];
@@ -137,7 +143,7 @@ const Overview = () => {
                         </tbody>
                       </table>
                     </div>
-                    <div className="d-flex mt-3">
+                    <div className="d-flex ">
                       <button
                         className="btn btn-outline-secondary btn-sm mx-2 "
                         disabled={currentPage === 1}
