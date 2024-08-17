@@ -117,6 +117,73 @@ const UserManagement = () => {
               </h4>
             </div>
           </div>
+          <div className="card p-4" style={{ backgroundColor: "white" }}>
+            <h5 className="card-title mb-4">
+              <strong>Create Real Property Owner Account</strong>
+            </h5>
+            <form>
+              <div className="row">
+                <div className="col-md-3 mb-3">
+                  <div className="form-group info">
+                    <label htmlFor="formName">Name</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="formName"
+                      placeholder="Enter name"
+                    />
+                  </div>
+                </div>
+                <div className="col-md-3 mb-3">
+                  <div className="form-group info">
+                    <label htmlFor="formEmail">Email</label>
+                    <input
+                      type="email"
+                      className="form-control"
+                      id="formEmail"
+                      placeholder="Enter email"
+                    />
+                  </div>
+                </div>
+                <div className="col-md-3 mb-3">
+                  <div className="form-group info">
+                    <label htmlFor="formphoneNo">Phone no.</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="formphoneNo"
+                      placeholder="Enter phone no."
+                    />
+                  </div>
+                </div>
+                <div className="col-md-3 mb-3">
+                  <div className="form-group info">
+                    <label htmlFor="formtaxDeclaration">Tax Declaration</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="formtaxDeclaration"
+                      placeholder="Enter tax declaration"
+                    />
+                  </div>
+                </div>
+                <div className="col-md-3 mb-3">
+                  <div className="form-group info">
+                    <label htmlFor="formassessedValue">Assessed Value</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="formassessedValue"
+                      placeholder="Enter assessed Value"
+                    />
+                  </div>
+                </div>
+              </div>
+              <button type="button" className="btn btn-primary float-right">
+                Create
+              </button>
+            </form>
+          </div>
           <div className="row">
             <div className="col-12">
               <div className="card">
@@ -131,12 +198,6 @@ const UserManagement = () => {
                     />
                     <Button variant="outline-secondary" className="ms-2 btn-sm">
                       Filter
-                    </Button>
-                    <Button
-                      variant="outline-primary btn-sm"
-                      className="ms-2 btn-sm"
-                    >
-                      Add
                     </Button>
                   </div>
                   <div className="table-container">
