@@ -60,18 +60,18 @@ const Overview = () => {
     // Add more rows if needed
   ];
 
-   const renderStatusBadge = (status) => {
-     switch (status) {
-       case "Paid":
-         return <Badge bg="success">Paid</Badge>;
-       case "Pending":
-         return <Badge bg="warning">Pending</Badge>;
-       case "Unpaid":
-         return <Badge bg="danger">Unpaid</Badge>;
-       default:
-         return <Badge bg="secondary">Unknown</Badge>;
-     }
-   };
+  const renderStatusBadge = (status) => {
+    switch (status) {
+      case "Paid":
+        return <Badge bg="success">Paid</Badge>;
+      case "Pending":
+        return <Badge bg="warning">Pending</Badge>;
+      case "Unpaid":
+        return <Badge bg="danger">Unpaid</Badge>;
+      default:
+        return <Badge bg="secondary">Unknown</Badge>;
+    }
+  };
 
   // Calculate the indices of the first and last rows for the current page
   const indexOfLastRow = currentPage * rowsPerPage;
