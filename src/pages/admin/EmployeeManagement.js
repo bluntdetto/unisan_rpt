@@ -29,9 +29,12 @@ const EmployeeManagement = () => {
   ];
 
   return (
-    <div className="container-fluid p-4" style={{ backgroundColor: "#e8ecf0" }}>
-      <div className="row pb-2 ">
-        <div className="col-9 col-md-12 col-lg-12">
+    <div
+      className="container-fluid p-4 "
+      style={{ backgroundColor: "#e8ecf0" }}
+    >
+      <div className="row pb-2">
+        <div className=" ">
           <div className="row m-0">
             <div className="col-md-12 pb-2">
               <h4>
@@ -98,7 +101,7 @@ const EmployeeManagement = () => {
       </div>
 
       <div className="row">
-        <div className="col-9 col-md-12 col-lg-12">
+        <div className="">
           <div className="card p-4" style={{ backgroundColor: "white" }}>
             <h5 className="mb-3 ">
               <strong>All Employees</strong>
@@ -114,7 +117,7 @@ const EmployeeManagement = () => {
                 Search
               </button>
             </form>
-            <div className="table-responsive">
+            <div className="table-responsive table-container">
               <table className="table table-hover">
                 <thead>
                   <tr>

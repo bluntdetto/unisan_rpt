@@ -170,7 +170,7 @@ const Payments = () => {
                       Filter
                     </Button>
                   </div>
-                  <div className="table-responsive">
+                  <div className="table-responsive table-container">
                     <Table hover responsive>
                       <thead>
                         <tr>
@@ -217,8 +217,6 @@ const Payments = () => {
                       Page {currentPage} of {totalPages}
                     </div>
                   </div>
-
-               
                 </div>
               </div>
             </div>

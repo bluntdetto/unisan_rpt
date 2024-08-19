@@ -171,7 +171,7 @@ const Overview = () => {
                     <h5 className="card-title pb-3">
                       <strong>Payment History and Tax Bill</strong>
                     </h5>
-                    <div className="table-responsive">
+                    <div className="table-responsive table-container">
                       <table className="table">
                         <thead>
                           <tr>

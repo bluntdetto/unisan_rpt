@@ -16,7 +16,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="bg col-auto col-md-2 min-vh-100 d-flex flex-column justify-content-between p-2">
+    <div className="bg col-auto col-md-3 col-lg-2 min-vh-100 d-flex flex-column justify-content-between p-2">
       <div>
         <Link
           className="text-decoration-none text-dark d-flex align-items-center ms-3 mt-2"
@@ -38,8 +38,8 @@ const Sidebar = () => {
               }`}
               aria-current="page"
             >
-              <i className="bi bi-columns-gap custom-icon"></i>
-              <span className="ms-3 d-none d-sm-inline fs-6">Overview</span>
+              <i className="bi bi-columns-gap custom-icon pl-1"></i>
+              <span className="ms-3 d-none d-sm-inline fs-6 ">Overview</span>
             </Link>
           </li>
           <li className="nav-item my-1">
@@ -50,7 +50,7 @@ const Sidebar = () => {
               }`}
               aria-current="page"
             >
-              <i className="bi bi-credit-card custom-icon"></i>
+              <i className="bi bi-credit-card custom-icon pl-1"></i>
               <span className="ms-3 d-none d-sm-inline fs-6">Payments</span>
             </Link>
           </li>
@@ -62,7 +62,7 @@ const Sidebar = () => {
               }`}
               aria-current="page"
             >
-              <i className="bi bi-person custom-icon"></i>
+              <i className="bi bi-person custom-icon pl-1"></i>
               <span className="ms-3 d-none d-sm-inline fs-6">Account</span>
             </Link>
           </li>

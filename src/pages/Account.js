@@ -98,8 +98,7 @@ const Overview = () => {
                         <p className="card-text title mb-0">Phone</p>
                         <p className="card-text info">09123456789</p>
                       </div>
-                      <div className ="col">
-                      </div>
+                      <div className="col"></div>
                     </div>
 
                     <div className="d-flex pt-3">
@@ -118,7 +117,7 @@ const Overview = () => {
                     <h5 className="card-title pb-3">
                       <strong>List of Properties</strong>
                     </h5>
-                    <div className="table-responsive">
+                    <div className="table-responsive table-container">
                       <table className="table">
                         <thead>
                           <tr>
