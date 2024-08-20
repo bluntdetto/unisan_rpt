@@ -1,8 +1,19 @@
 import React, { useState } from "react";
 import "./Overview.css";
-import { Badge } from "react-bootstrap";
+import { Badge, Modal, Button, Table } from "react-bootstrap";
+
 
 const Overview = () => {
+  // Modal state
+  const [showModal, setShowModal] = useState(false);
+  const [selectedProperty, setSelectedProperty] = useState({
+    barangay: "F. De Jesus",
+    taxDeclaration: "40-0004-00800",
+  });
+
+  const [highlightedProperty, setHighlightedProperty] = useState(null); // State to track the highlighted property
+
+  // Pagination state and data for payment history
   const [currentPage, setCurrentPage] = useState(1);
   const rowsPerPage = 6;
 
@@ -86,6 +97,28 @@ const Overview = () => {
   // Pagination logic
   const totalPages = Math.ceil(paymentHistory.length / rowsPerPage);
 
+  // Modal logic for selecting a property
+  const properties = [
+    { barangay: "F. De Jesus", taxDeclaration: "40-0004-00800" },
+    { barangay: "F. De Jesus", taxDeclaration: "40-0004-00800" },
+    { barangay: "F. De Jesus", taxDeclaration: "40-0004-00800" },
+  ];
+
+  const handleSelectProperty = (property) => {
+    setHighlightedProperty(property); // Highlight the selected property
+  };
+
+  const handleSaveProperty = () => {
+    if (highlightedProperty) {
+      setSelectedProperty(highlightedProperty); // Save the highlighted property
+      setShowModal(false); // Close the modal
+    }
+  };
+
+  const handleShowModal = () => setShowModal(true);
+  const handleCloseModal = () => setShowModal(false);
+
+
   return (
     <div>
       <div className="container-fluid px-4 mr-0">
@@ -156,7 +189,7 @@ const Overview = () => {
                     </p>
                     <p className="card-text info">40-0004-00800</p>
                     <div className="d-flex pt-3">
-                      <button className="btn btn-outline-secondary btn-sm">
+                      <button className="btn btn-outline-secondary btn-sm" onClick={handleShowModal}>
                         Select Property
                       </button>
                     </div>
@@ -230,7 +263,44 @@ const Overview = () => {
           </div>
         </div>
       </div>
-    </div>
+    {/* Modal for selecting property */}
+    <Modal show={showModal} onHide={handleCloseModal}>
+          <Modal.Header closeButton>
+            <Modal.Title>Select Property</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Table striped bordered hover>
+              <thead>
+                <tr>
+                  <th>Name of Barangay</th>
+                  <th>Tax Declaration</th>
+                </tr>
+              </thead>
+              <tbody>
+                {properties.map((property, index) => (
+                  <tr
+                    key={index}
+                    onClick={() => handleSelectProperty(property)}
+                    className={highlightedProperty === property ? "table-active" : ""}
+                    style={{ cursor: "pointer" }}
+                  >
+                    <td>{property.barangay}</td>
+                    <td>{property.taxDeclaration}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleCloseModal}>
+              Cancel
+            </Button>
+            <Button variant="primary" onClick={handleSaveProperty}>
+              Save
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </div>
   );
 };
 
