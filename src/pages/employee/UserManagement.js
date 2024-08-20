@@ -1,10 +1,13 @@
 import React, { useState } from "react";
-import { Table, Button, Form } from "react-bootstrap";
+import { Table, Button, Form, Modal } from "react-bootstrap";
 
 const UserManagement = () => {
-  const [filter, setFilter] = useState("All");
+  const [sort, setSort] = useState("All");
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+  const [showSortModal, setShowSortModal] = useState(false); // State to show/hide modal
+  const [selectedColumn, setSelectedColumn] = useState("Name");
+  const [sortOrder, setSortOrder] = useState("asc"); // State to hold sort order
   const rowsPerPage = 9;
 
   const usersData = [
@@ -85,17 +88,31 @@ const UserManagement = () => {
     },
   ];
 
-  const filteredData = usersData
-    .filter((user) => {
-      if (filter === "All") return true;
-      return user.status === filter;
+  const sortedData = usersData
+    .sort((user) => {
+      if (sort === "All") return true;
+      return user.status === sort;
     })
-    .filter((user) => {
+    .sort((user) => {
       return (
         user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         user.email.toLowerCase().includes(searchTerm.toLowerCase())
       );
     });
+
+    const handleSort = () => {
+      setShowSortModal(true);
+    };
+  
+    const handleSaveSort = () => {
+      // Implement sorting logic here based on selectedColumn and sortOrder
+      console.log("Selected Column:", selectedColumn);
+      console.log("Sort Order:", sortOrder);
+  
+      // Close modal
+      setShowSortModal(false);
+    };
+  
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -103,8 +120,8 @@ const UserManagement = () => {
 
   const indexOfLastRow = currentPage * rowsPerPage;
   const indexOfFirstRow = indexOfLastRow - rowsPerPage;
-  const currentRows = filteredData.slice(indexOfFirstRow, indexOfLastRow);
-  const totalPages = Math.ceil(filteredData.length / rowsPerPage);
+  const currentRows = sortedData.slice(indexOfFirstRow, indexOfLastRow);
+  const totalPages = Math.ceil(sortedData.length / rowsPerPage);
 
   return (
     <div className="container-fluid px-4 mr-0">
@@ -196,8 +213,8 @@ const UserManagement = () => {
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
                     />
-                    <Button variant="outline-secondary" className="ms-2 btn-sm">
-                      Filter
+                    <Button variant="outline-secondary" className="ms-2 btn-sm" onClick={handleSort}>
+                      Sort
                     </Button>
                   </div>
                   <div className="table-container">
@@ -266,6 +283,58 @@ const UserManagement = () => {
           </div>
         </div>
       </div>
+      {/* Sort Modal */}
+      <Modal show={showSortModal} onHide={() => setShowSortModal(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Sort</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Group controlId="formColumn">
+              <Form.Label>Column</Form.Label>
+              <Form.Control
+                as="select"
+                value={selectedColumn}
+                onChange={(e) => setSelectedColumn(e.target.value)}
+              >
+                <option value="Name">Name</option>
+                <option value="Email">Email</option>
+                <option value="TaxDeclaration">Tax Declaration</option>
+                <option value="AssessedValue">Assessed Value</option>
+              </Form.Control>
+            </Form.Group>
+            <Form.Group controlId="formSortOrder" className="mt-3">
+              <Form.Label>Sort by</Form.Label>
+              <Form.Control
+                as="select"
+                value={sortOrder}
+                onChange={(e) => setSortOrder(e.target.value)}
+              >
+                {selectedColumn === "TaxDeclaration" ||
+                selectedColumn === "AssessedValue" ? (
+                  <>
+                    <option value="asc">Ascending</option>
+                    <option value="desc">Descending</option>
+                  </>
+                ) : (
+                  <>
+                    <option value="asc">Alphabetical Asc (A - Z)</option>
+                    <option value="desc">Alphabetical Dsc (Z - A)</option>
+                  </>
+                )}
+              </Form.Control>
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowSortModal(false)}>
+            Cancel
+          </Button>
+          <Button variant="primary" onClick={handleSaveSort}>
+            Save
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };
