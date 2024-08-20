@@ -1,10 +1,20 @@
 import React, { useState } from "react";
 import "./Overview.css";
-import { Badge } from "react-bootstrap";
+import { Badge, Modal, Button, Form } from "react-bootstrap";
 
 const Overview = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const rowsPerPage = 4;
+
+  // Modal state
+  const [show, setShow] = useState(false);
+  const [userData, setUserData] = useState({
+    firstName: "Yolanda",
+    lastName: "Valler",
+    middleInitial: "C.",
+    email: "yolanda@gmail.com",
+    phone: "09123456789",
+  });
 
   // Sample data for the table
   const listOfProperties = [
@@ -40,7 +50,6 @@ const Overview = () => {
     // Add more rows if needed
   ];
 
-
   // Calculate the indices of the first and last rows for the current page
   const indexOfLastRow = currentPage * rowsPerPage;
   const indexOfFirstRow = indexOfLastRow - rowsPerPage;
@@ -53,6 +62,22 @@ const Overview = () => {
 
   // Pagination logic
   const totalPages = Math.ceil(listOfProperties.length / rowsPerPage);
+
+  // Modal Handlers
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  // Form submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Submit logic here, e.g., API call
+    handleClose();
+  };
+
+  // Handle input changes in the form
+  const handleChange = (e) => {
+    setUserData({ ...userData, [e.target.name]: e.target.value });
+  };
 
   return (
     <div>
@@ -102,7 +127,10 @@ const Overview = () => {
                     </div>
 
                     <div className="d-flex pt-3">
-                      <button className="btn btn-outline-secondary btn-sm">
+                      <button
+                        className="btn btn-outline-secondary btn-sm"
+                        onClick={handleShow}
+                      >
                         Edit
                       </button>
                     </div>
@@ -170,6 +198,78 @@ const Overview = () => {
           </div>
         </div>
       </div>
+      {/* Edit Personal Info Modal */}
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Account Details</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group controlId="firstName">
+              <Form.Label>First Name</Form.Label>
+              <Form.Control
+                type="text"
+                name="firstName"
+                value={userData.firstName}
+                onChange={handleChange}
+                required
+              />
+            </Form.Group>
+
+            <Form.Group controlId="lastName" className="mt-3">
+              <Form.Label>Last Name</Form.Label>
+              <Form.Control
+                type="text"
+                name="lastName"
+                value={userData.lastName}
+                onChange={handleChange}
+                required
+              />
+            </Form.Group>
+
+            <Form.Group controlId="middleInitial" className="mt-3">
+              <Form.Label>Middle Initial</Form.Label>
+              <Form.Control
+                type="text"
+                name="middleInitial"
+                value={userData.middleInitial}
+                onChange={handleChange}
+                required
+              />
+            </Form.Group>
+
+            <Form.Group controlId="email" className="mt-3">
+              <Form.Label>Email</Form.Label>
+              <Form.Control
+                type="email"
+                name="email"
+                value={userData.email}
+                onChange={handleChange}
+                required
+              />
+            </Form.Group>
+
+            <Form.Group controlId="phone" className="mt-3">
+              <Form.Label>Phone</Form.Label>
+              <Form.Control
+                type="tel"
+                name="phone"
+                value={userData.phone}
+                onChange={handleChange}
+                required
+              />
+            </Form.Group>
+
+            <Modal.Footer>
+              <div className="d-flex justify-content-end w-100">
+                <Button variant="primary" type="submit">
+                  Update
+                </Button>
+              </div>
+            </Modal.Footer>
+          </Form>
+        </Modal.Body>
+      </Modal>
     </div>
   );
 };
