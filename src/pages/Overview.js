@@ -1,17 +1,43 @@
 import React, { useState } from "react";
 import "./Overview.css";
 import { Badge, Modal, Button, Table } from "react-bootstrap";
-
+import PayTaxDue from "../components/PayTaxDue"; // Import the modal component
 
 const Overview = () => {
   // Modal state
   const [showModal, setShowModal] = useState(false);
+  const [showTaxModal, setShowTaxModal] = useState(false); // New state for TaxDeclarationModal
   const [selectedProperty, setSelectedProperty] = useState({
     barangay: "F. De Jesus",
     taxDeclaration: "40-0004-00800",
   });
 
   const [highlightedProperty, setHighlightedProperty] = useState(null); // State to track the highlighted property
+
+  // Data for the tax modal
+  const taxData = {
+    taxDeclarationNumber: "40 - 004 - 12345",
+    logoUrl: "https://via.placeholder.com/150", // Replace with actual logo URL
+    companyName: "ERPT - UNISAN",
+    municipality: "Municipality of Unisan, Quezon",
+    address: "F. De Jesus Brgy. Hall, Resma Rd, Unisan, Quezon 4305",
+    phone: "0912-123-1234",
+    email: "unisan@gmail.com",
+    website: "erpt-unisan.com",
+    assessedValue: "261,140.00",
+    basicTax: "652.85",
+    educationFund: "652.85",
+    subTotal: "1,305.70",
+    discount: "130.57",
+    totalAmount: "1,175.13",
+  };
+
+  const userData = {
+    name: "Yolanda C. Valler",
+    email: "yolandavaller@gmail.com",
+    address: "Brgy. F. De Jesus, Unisan, Quezon",
+    date: "Mar 7, 2024",
+  };
 
   // Pagination state and data for payment history
   const [currentPage, setCurrentPage] = useState(1);
@@ -118,6 +144,9 @@ const Overview = () => {
   const handleShowModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
 
+  // Handlers to show/hide the tax modal
+  const handleShowTaxModal = () => setShowTaxModal(true);
+  const handleCloseTaxModal = () => setShowTaxModal(false);
 
   return (
     <div>
@@ -160,7 +189,10 @@ const Overview = () => {
                       <button className="btn btn-outline-secondary btn-sm mr-3">
                         Change Plan
                       </button>
-                      <button className="btn btn-primary btn-sm">
+                      <button
+                        className="btn btn-primary btn-sm"
+                        onClick={handleShowTaxModal}
+                      >
                         Pay Tax Due
                       </button>
                     </div>
@@ -189,7 +221,10 @@ const Overview = () => {
                     </p>
                     <p className="card-text info">40-0004-00800</p>
                     <div className="d-flex pt-3">
-                      <button className="btn btn-outline-secondary btn-sm" onClick={handleShowModal}>
+                      <button
+                        className="btn btn-outline-secondary btn-sm"
+                        onClick={handleShowModal}
+                      >
                         Select Property
                       </button>
                     </div>
@@ -230,7 +265,10 @@ const Overview = () => {
                                     Download Receipt
                                   </button>
                                 ) : (
-                                  <button className="btn btn-primary btn-sm">
+                                  <button
+                                    className="btn btn-primary btn-sm"
+                                    onClick={handleShowTaxModal}
+                                  >
                                     Pay Tax Due
                                   </button>
                                 )}
@@ -263,44 +301,53 @@ const Overview = () => {
           </div>
         </div>
       </div>
-    {/* Modal for selecting property */}
-    <Modal show={showModal} onHide={handleCloseModal}>
-          <Modal.Header closeButton>
-            <Modal.Title>Select Property</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <Table striped bordered hover>
-              <thead>
-                <tr>
-                  <th>Name of Barangay</th>
-                  <th>Tax Declaration</th>
+      {/* Modal for selecting property */}
+      <Modal show={showModal} onHide={handleCloseModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Select Property</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>Name of Barangay</th>
+                <th>Tax Declaration</th>
+              </tr>
+            </thead>
+            <tbody>
+              {properties.map((property, index) => (
+                <tr
+                  key={index}
+                  onClick={() => handleSelectProperty(property)}
+                  className={
+                    highlightedProperty === property ? "table-active" : ""
+                  }
+                  style={{ cursor: "pointer" }}
+                >
+                  <td>{property.barangay}</td>
+                  <td>{property.taxDeclaration}</td>
                 </tr>
-              </thead>
-              <tbody>
-                {properties.map((property, index) => (
-                  <tr
-                    key={index}
-                    onClick={() => handleSelectProperty(property)}
-                    className={highlightedProperty === property ? "table-active" : ""}
-                    style={{ cursor: "pointer" }}
-                  >
-                    <td>{property.barangay}</td>
-                    <td>{property.taxDeclaration}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </Table>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleCloseModal}>
-              Cancel
-            </Button>
-            <Button variant="primary" onClick={handleSaveProperty}>
-              Save
-            </Button>
-          </Modal.Footer>
-        </Modal>
-      </div>
+              ))}
+            </tbody>
+          </Table>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseModal}>
+            Cancel
+          </Button>
+          <Button variant="primary" onClick={handleSaveProperty}>
+            Save
+          </Button>
+        </Modal.Footer>
+      </Modal>
+      {/* Tax Declaration Modal */}
+      <PayTaxDue
+        show={showTaxModal}
+        handleClose={handleCloseTaxModal}
+        taxData={taxData}
+        userData={userData}
+      />
+    </div>
   );
 };
 
