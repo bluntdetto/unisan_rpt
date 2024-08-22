@@ -1,18 +1,21 @@
 import React, { useState } from "react";
 import "./Overview.css";
-import { Badge, Modal, Button, Table } from "react-bootstrap";
+import { Badge, Modal, Button, Table, Form } from "react-bootstrap";
 import PayTaxDue from "../components/PayTaxDue"; // Import the modal component
 
 const Overview = () => {
   // Modal state
   const [showModal, setShowModal] = useState(false);
   const [showTaxModal, setShowTaxModal] = useState(false); // New state for TaxDeclarationModal
+  const [showChangePlanModal, setShowChangePlanModal] = useState(false); // New state for Change Plan Modal
+
   const [selectedProperty, setSelectedProperty] = useState({
     barangay: "F. De Jesus",
     taxDeclaration: "40-0004-00800",
   });
 
   const [highlightedProperty, setHighlightedProperty] = useState(null); // State to track the highlighted property
+  const [selectedPlan, setSelectedPlan] = useState("Annually"); // State to track the selected plan
 
   // Data for the tax modal
   const taxData = {
@@ -148,6 +151,15 @@ const Overview = () => {
   const handleShowTaxModal = () => setShowTaxModal(true);
   const handleCloseTaxModal = () => setShowTaxModal(false);
 
+  // Handlers to show/hide the change plan modal
+  const handleShowChangePlanModal = () => setShowChangePlanModal(true);
+  const handleCloseChangePlanModal = () => setShowChangePlanModal(false);
+
+  const handleSavePlan = () => {
+    // Save the selected plan (you can add your logic here)
+    setShowChangePlanModal(false);
+  };
+
   return (
     <div>
       <div className="container-fluid px-4 mr-0">
@@ -186,7 +198,9 @@ const Overview = () => {
                       2nd Quarter - April 1, to June 30, 2024 - ₱1175.12
                     </p>
                     <div className="d-flex pt-3">
-                      <button className="btn btn-outline-secondary btn-sm mr-3">
+                      <button className="btn btn-outline-secondary btn-sm mr-3" 
+                      onClick={handleShowChangePlanModal}
+                      >
                         Change Plan
                       </button>
                       <button
@@ -347,6 +361,36 @@ const Overview = () => {
         taxData={taxData}
         userData={userData}
       />
+      {/* Change Plan Modal */}
+      <Modal show={showChangePlanModal} onHide={handleCloseChangePlanModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Change Payment Plan</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <div className="d-flex flex-column">
+            <Form.Group controlId="planSelect">
+              <Form.Label>Select Payment Plan</Form.Label>
+              <Form.Control
+                as="select"
+                value={selectedPlan}
+                onChange={(e) => setSelectedPlan(e.target.value)}
+              >
+                <option value="Annually">Annually</option>
+                <option value="Quarterly">Quarterly</option>
+                <option value="Pre-Annual">Pre-Annual</option>
+              </Form.Control>
+            </Form.Group>
+          </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseChangePlanModal}>
+            Cancel
+          </Button>
+          <Button variant="primary" onClick={handleSavePlan}>
+            Save
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };
